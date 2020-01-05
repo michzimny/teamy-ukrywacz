@@ -1,0 +1,17 @@
+# Ukrywacz 0.1
+# by MZ
+# 03.05.2011
+
+RewriteEngine On
+
+# protokol
+RewriteRule ([a-zA-Z0-9]{2})(\d+)b-(\d+)\.html$ /wyniki/liga/liga2019-20/1liga/ukrywacz/ukryj_rzd.php?pref=$1&rnd=$2&rzd=$3
+
+# traveller
+RewriteRule ([a-zA-Z0-9]{2})(\d+)t(\d+)-(\d+)\.html$ /wyniki/liga/liga2019-20/1liga/ukrywacz/ukryj_trav.php?pref=$1&rnd=$2&stol=$3&segm=$4
+
+# force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
